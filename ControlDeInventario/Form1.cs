@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace ControlDeInventario
 {
-    public partial class Form1 : Form
+    public partial class RegistrarInventario : Form
     {
-        public Form1()
+        public RegistrarInventario()
         {
             InitializeComponent();
         }
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
