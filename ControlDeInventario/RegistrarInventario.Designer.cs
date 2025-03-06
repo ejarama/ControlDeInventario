@@ -81,9 +81,9 @@ namespace ControlDeInventario
             // 
             this.listBoxInventario.FormattingEnabled = true;
             this.listBoxInventario.ItemHeight = 25;
-            this.listBoxInventario.Location = new System.Drawing.Point(101, 336);
+            this.listBoxInventario.Location = new System.Drawing.Point(148, 336);
             this.listBoxInventario.Name = "listBoxInventario";
-            this.listBoxInventario.Size = new System.Drawing.Size(1070, 229);
+            this.listBoxInventario.Size = new System.Drawing.Size(969, 229);
             this.listBoxInventario.TabIndex = 4;
             // 
             // btnAgregarProducto
@@ -94,6 +94,7 @@ namespace ControlDeInventario
             this.btnAgregarProducto.TabIndex = 5;
             this.btnAgregarProducto.Text = "Agregar Producto";
             this.btnAgregarProducto.UseVisualStyleBackColor = true;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
             // 
             // txtNombreProducto
             // 
