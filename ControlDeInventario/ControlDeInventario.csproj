@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsInventarioProductos.cs" />
+    <Compile Include="clsProductos.cs" />
     <Compile Include="RegistrarInventario.cs">
       <SubType>Form</SubType>
     </Compile>
