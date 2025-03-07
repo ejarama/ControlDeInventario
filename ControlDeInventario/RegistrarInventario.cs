@@ -54,8 +54,8 @@ namespace ControlDeInventario
                     inventario.Add(producto);
                 }
                 
-                ActualizarLista();
-                limpiarRegistroInventario();
+                actualizarLista();
+                limpiarCampos();
 
                 MessageBox.Show("El productó se registró con éxito", "Información", MessageBoxButtons.OK);
                 tabControlInventarios.SelectedTab = tabListaProductos;
@@ -98,10 +98,14 @@ namespace ControlDeInventario
                     if (vender)
                     {
                         inventario[indiceProd].CantidadProducto -= productoVenta.CantidadProducto;
-                        ActualizarLista();
-                        limpiarRegistroInventario();
+
+
+                        limpiarCampos();
                         MessageBox.Show("La venta se realizó con éxito", "Información", MessageBoxButtons.OK);
                         tabControlInventarios.SelectedTab = tabListaProductos;
+                        actualizarLista();
+                        quitarProductoSinStock();
+                        
                     }
                     else
                         MessageBox.Show("No hay stock suficiente para la venta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -120,19 +124,32 @@ namespace ControlDeInventario
             }
         }
 
-        public void limpiarRegistroInventario()
+        public void limpiarCampos()
         {
             txtNombreProducto.Clear();
             txtPrecioProducto.Clear();
             txtCantidadStock.Clear();
+            txtBuscarProducto.Clear();
+            txtCantidadVenta.Clear();
+
         }
-        private void ActualizarLista()
+        public void actualizarLista()
         {
             listBoxInventario.Items.Clear();
             foreach (var prod in inventario)
             {
                 listBoxInventario.Items.Add($"{prod.NombreProducto} - Precio: {prod.PrecioProducto}, Stock: {prod.CantidadProducto}");
             }
+        }
+
+        public void quitarProductoSinStock()
+        {
+            for (int i = inventario.Count-1; i >= 0; i--)
+            {
+                if (inventario[i].CantidadProducto == 0)
+                    inventario.RemoveAt(i);
+            }
+            actualizarLista();
         }
     }
 }
