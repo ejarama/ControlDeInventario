@@ -29,7 +29,7 @@ namespace ControlDeInventario
         {
             for (int i = 0; i < listaProductos.Count; i++)
             {
-                if (listaProductos[i].NombreProducto.Contains(nombre))
+                if (listaProductos[i].NombreProducto.Equals(nombre))
                     return i;
 
             }
@@ -39,7 +39,7 @@ namespace ControlDeInventario
 
         public bool venderProducto(int indice, int cantidadVenta)
         {
-            if(listaProductos[indice].CantidadProducto >= cantidadVenta)
+            if (listaProductos[indice].CantidadProducto >= cantidadVenta)
                 return true;
             return false;
         }

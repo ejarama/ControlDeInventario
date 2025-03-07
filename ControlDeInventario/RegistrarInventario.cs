@@ -47,13 +47,7 @@ namespace ControlDeInventario
                 //instancio el producto nuevo
                 clsProductos producto = new clsProductos(nombreProd, precioProd, cantidadProd, inventario);
 
-                int indiceProd = producto.buscarIndiceProducto(producto.NombreProducto);
-                //si el indice es -1 no se encontró producto 
-                if (indiceProd == -1)
-                {
-                    inventario.Add(producto);
-                }
-                
+                inventario.Add(producto);
                 actualizarLista();
                 limpiarCampos();
 
@@ -98,7 +92,6 @@ namespace ControlDeInventario
                     if (vender)
                     {
                         inventario[indiceProd].CantidadProducto -= productoVenta.CantidadProducto;
-
 
                         limpiarCampos();
                         MessageBox.Show("La venta se realizó con éxito", "Información", MessageBoxButtons.OK);
